@@ -1,5 +1,4 @@
-const deleteTodo = document.querySelector(".fa-trash"),
-  btnAdd = document.querySelector(".btn-add"),
+const btnAdd = document.querySelector(".btn-add"),
   todoText = document.querySelector(".todo-text"),
   checkbox = document.querySelector(".checkbox"),
   todoList = document.querySelector(".todo-list ul"),
@@ -39,9 +38,18 @@ function createTodo(todos) {
     </div>
   </li>`;
     todoList.innerHTML = result;
+    // get buttons
+    const deleteTodo = [...document.querySelectorAll(".fa-trash")];
+    deleteTodo.forEach((btn) => btn.addEventListener("click", removeTodo));
   });
 }
 
+function removeTodo(e) {
+  const id = Number(e.target.dataset.todoId);
+  todos = getTodos();
+  todos = todos.filter((todo) => Number(todo.id) != id);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 // localStorage
 function getTodos() {
   return JSON.parse(localStorage.getItem("todos")) || [];
@@ -49,7 +57,6 @@ function getTodos() {
 
 function saveTodo(todo) {
   let savedtodo = getTodos();
-  console.log(savedtodo);
   savedtodo.push(todo);
   localStorage.setItem("todos", JSON.stringify(savedtodo));
   return savedtodo;
