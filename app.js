@@ -13,12 +13,33 @@ btnAdd.addEventListener("click", addtodo);
 function addtodo() {
   if (!inputbox.value) return null;
   let newtodo = {
+    id: Date.now(),
     title: inputbox.value,
     isComplated: false,
   };
   saveTodo(newtodo);
   createTodo(newtodo);
   inputbox.value = "";
+}
+function createTodo(todos) {
+  todos = getTodos();
+  let result = "";
+  todos.forEach((todo) => {
+    result += `<li>
+    <div>
+      <input type="checkbox" name="" id="todo-text" class="checkbox" data-todo-id="${
+        todo.id
+      }" ${todo.isComplated && "checked"} />
+      <p id="todo-text" class="${todo.isComplated && "checked"}">${
+      todo.title
+    }</p>
+    </div>
+    <div>
+      <span><i class="fas fa-trash" data-todo-id="${todo.id}"></i></span>
+    </div>
+  </li>`;
+    todoList.innerHTML = result;
+  });
 }
 
 // localStorage
