@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.todos-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #eeeeee;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+h1 span {
+  color: cornflowerblue;
+  padding-right: 0.5rem;
+}
+
+form {
+  position: relative;
+}
+
+.inputbox {
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  font-size: 1.5rem;
+}
+
+.btn-add {
+  background-color: cornflowerblue;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.todo-list {
+  width: 500px;
+  margin: 2rem 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+p.checked {
+  text-decoration: line-through;
+}
+
+li p {
+  display: inline-block;
+  margin-left: 0.3rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.fa-trash {
+  color: crimson;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.3);
+}

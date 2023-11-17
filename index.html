@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="todos-container">
+      <h1>
+        <span><i class="fa fa-check-square"></i></span>Todos
+      </h1>
+      <form action="">
+        <input type="text" placeholder="Add new ..." class="inputbox" />
+        <span class="btn-add">Add</span>
+      </form>
+      <div class="todo-list">
+        <ul>
+          <li>
+            <div>
+              <input type="checkbox" name="" id="todo-text" class="checkbox" />
+              <p id="todo-text" class="checked">lotrem</p>
+            </div>
+            <div>
+              <span><i class="fas fa-trash"></i></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <input type="checkbox" name="" id="todo-text" class="checkbox" />
+              <p id="todo-text" class="checked">lotrem sha512</p>
+            </div>
+            <div>
+              <span><i class="fas fa-trash"></i></span>
+            </div>
+          </li> 
+        </ul>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
