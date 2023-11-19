@@ -2,13 +2,23 @@ const btnAdd = document.querySelector(".btn-add"),
   todoText = document.querySelector(".todo-text"),
   checkbox = document.querySelector(".checkbox"),
   todoList = document.querySelector(".todo-list ul"),
-  inputbox = document.querySelector(".inputbox");
-
+  inputbox = document.querySelector(".inputbox"),
+  filter = document.querySelector("#filter");
+let filterValue = "all";
+// events
 document.addEventListener("DOMContentLoaded", (e) => {
   const todos = getTodos();
   createTodo(todos);
 });
+filter.addEventListener("change", (e) => {
+  filterValue = e.target.value;
+  console.log(filterValue);
+  filterTodo();
+});
 btnAdd.addEventListener("click", addtodo);
+
+// functions
+
 function addtodo() {
   if (!inputbox.value) return null;
   let newtodo = {
@@ -17,11 +27,10 @@ function addtodo() {
     isComplated: false,
   };
   saveTodo(newtodo);
-  createTodo(newtodo);
+  filterTodo(newtodo);
   inputbox.value = "";
 }
 function createTodo(todos) {
-  todos = getTodos();
   let result = "";
   todos.forEach((todo) => {
     result += `<li>
@@ -49,6 +58,30 @@ function removeTodo(e) {
   todos = getTodos();
   todos = todos.filter((todo) => Number(todo.id) != id);
   localStorage.setItem("todos", JSON.stringify(todos));
+}
+function filterTodo() {
+  const todos = getTodos();
+  console.log(filterValue);
+  console.log(todos);
+  switch (filterValue) {
+    case "all": {
+      createTodo(todos);
+      break;
+    }
+    case "completed": {
+      const filteredtodos = todos.filter((t) => t.isComplated);
+      console.log(filteredtodos);
+      createTodo(filteredtodos);
+      break;
+    }
+    case "uncompleted": {
+      const filteredtodos = todos.filter((t) => !t.isComplated);
+      createTodo(filteredtodos);
+      break;
+    }
+    default:
+      createTodo(todos);
+  }
 }
 // localStorage
 function getTodos() {

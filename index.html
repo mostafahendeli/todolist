@@ -23,6 +23,19 @@
         <input type="text" placeholder="Add new ..." class="inputbox" />
         <span class="btn-add">Add</span>
       </form>
+      <div class="select">
+        <label for="filter">Filter:</label>
+        <select name="filter" id="filter">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+        <label for="sort">Sort:</label>
+        <select name="sort" id="sort">
+          <option value="AZ">A-Z</option>
+          <option value="ZA">Z-A</option>
+        </select>
+      </div>
       <div class="todo-list">
         <ul>
           <li>
@@ -42,7 +55,7 @@
             <div>
               <span><i class="fas fa-trash"></i></span>
             </div>
-          </li> 
+          </li>
         </ul>
       </div>
     </div>
